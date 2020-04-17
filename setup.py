@@ -63,7 +63,7 @@ install_requires = [
 ]
 
 classifiers=[
-        'Development Status :: 1 - dev',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
