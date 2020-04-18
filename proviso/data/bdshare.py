@@ -17,8 +17,8 @@ def get_dse_data(ticker, cache_path):
     else:
         #end = dt.datetime.now().strftime('%Y-%m-%d')
         end = dt.datetime.now().date()
-        start = end - dt.timedelta(days=2*360)
-        data = get_basic_hist_data(start, end, ticker)
+        #start = end - dt.timedelta(days=2*360)
+        data = get_basic_hist_data('2008-01-01', end, ticker)
         # reverse order so newest is at end of list
         #data = data[::-1]
         if not cache_path == None:
