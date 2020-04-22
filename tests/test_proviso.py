@@ -1,8 +1,9 @@
-from proviso import getOrTrainModel, predictFuture
 import os
 import json
 import pickle
 import matplotlib.pyplot as plt
+import proviso.data.bdshare as bds
+from proviso import getOrTrainModel, predictFuture
 # from tensorflow.python.client import device_lib
 # from keras import backend as K
 
@@ -55,7 +56,8 @@ def predictClosePrices():
 			ticker, epochs, batch_size, look_back)
 
 		try:
-			model = getOrTrainModel(ticker, cache_data, attribute,
+			dataframe = bds.get_dse_data(ticker, cache_data)
+			model = getOrTrainModel(ticker, dataframe, cache_data, attribute,
 									model_data, weights_data, epochs=epochs, look_back=look_back)
 			prediction_output = predictFuture(model, num_days_to_predict, 'json')
 			prediction_json = json.loads(prediction_output)

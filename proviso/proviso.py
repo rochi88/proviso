@@ -1,6 +1,5 @@
 import json
 
-import proviso.data.bdshare as bds
 import proviso.utils.NetworkUtils as nu
 import proviso.utils.DataUtils as du
 import numpy as np
@@ -27,14 +26,15 @@ def calculatePerasonCorrelationCoefficient(days, array_one, array_two):
 	array_one_slice = array_one[-days:]
 	array_two_slice = array_two[-days:]
 
-def getOrTrainModel(ticker, cache_path, attribute, model_path, weights_path,
+def getOrTrainModel(ticker, dataframe, cache_path, attribute, model_path, weights_path,
 					epochs=100, batch_size=32, look_back=31):
 	'''
 
 	If cached data is found, then use the cached price data and weights to compile the trained model
 
 	:param ticker: The stock ticker
-    :param cached_data_path: The path to alphavantage data
+	:param dataframe: stock data
+    :param cache_path: The path to cached stock data
 	:param attribute: The column to predict. This can be 'open', 'close', or 'volume'
 	:param model_path: The path to a model, or path to where a model should be saved
 	:param weights_path: The path to model weights, or path to where weights should be saved
@@ -43,7 +43,7 @@ def getOrTrainModel(ticker, cache_path, attribute, model_path, weights_path,
 	:param look_back: The look_back value used to train the model
 	:return: The model
 	'''
-	dataframe = bds.get_dse_data(ticker, cache_path)
+	
 	train_x, test_x, train_y, test_y, dataset = du.prepareTrainingData(dataframe, attribute, scaler, look_back)
 	# create and fit the LSTM network
 	model = nu.getModel(train_x, train_y, test_x, test_y, model_path, weights_path,

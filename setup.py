@@ -15,14 +15,14 @@ with open('CHANGELOG.md') as history_file:
 setup_args = dict(
     name='proviso',
     version=read('proviso/VERSION.txt'),
-    description='A utility for Stock price prediction with keras',
+    description='A utility for prediction with keras and gym',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     packages=find_packages(),
     author='Raisul Islam',
     author_email='raisul.exe@gmail.com',
-    keywords=['deep learning','ai'],
+    keywords=['deep learning','rl'],
     url='https://github.com/rochi88/proviso',
     download_url='https://github.com/rochi88/proviso/archive/master.zip'
 )
@@ -59,7 +59,9 @@ install_requires = [
 		'termcolor>=1.1.0',
 		'urllib3>=1.24.1',
 		'Werkzeug>=0.14.1',
-		'wincertstore>=0.2'
+		'wincertstore>=0.2',
+		'gym',
+		'tensorforce'
 ]
 
 classifiers=[
