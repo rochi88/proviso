@@ -28,13 +28,14 @@ setup_args = dict(
 )
 
 install_requires = [
-		'absl-py>=0.6.1'
+		'absl-py>=0.6.1',
 		'astor>=0.7.1',
 		'certifi>=2018.8.24',
 		'chardet>=3.0.4',
 		'cycler>=0.10.0',
 		'gast>=0.2.0',
 		'grpcio>=1.17.1',
+		'gym',
 		'h5py>=2.9.0',
 		'idna>=2.8',
 		'Keras>=2.2.4',
@@ -56,12 +57,11 @@ install_requires = [
 		'six>=1.12.0',
 		'tensorboard>=1.12.1',
 		'tensorflow>=1.12.2',
+		'tensorforce',
 		'termcolor>=1.1.0',
 		'urllib3>=1.24.1',
 		'Werkzeug>=0.14.1',
-		'wincertstore>=0.2',
-		'gym',
-		'tensorforce'
+		'wincertstore>=0.2'		
 ]
 
 classifiers=[
