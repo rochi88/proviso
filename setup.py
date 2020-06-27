@@ -30,6 +30,7 @@ setup_args = dict(
 install_requires = [
 		'absl-py>=0.6.1',
 		'astor>=0.7.1',
+		'bdshare',
 		'certifi>=2018.8.24',
 		'chardet>=3.0.4',
 		'cycler>=0.10.0',
